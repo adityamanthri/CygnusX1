@@ -36,4 +36,8 @@ Operation Cygnus X-1 is a fun open world space themed game set in the distant fu
 
 
 #### Shooting asteroids
-![Shooting Asteroids](ss/shooting.png)
+![Shooting Asteroids](ss/shooting.png
+
+## Credits
+
+Operation Cygnus is made my Aditya Manthri and Kai Tong Gao from Cornell Univeristy for the Big Red Hacks Hackathon on September 26, 2021. It was programmed in python using the library pygame. Our title screens and spaceship sprites were all designed and created in Photoshop and Illustrator with additional images from Unsplash. We also took used publicly avaliable 3d models of planets and moons provided by NASA.
