@@ -787,19 +787,20 @@ end_it = False
 while (end_it==False):
     screen.fill(BLACK)
     myfont=pygame.font.SysFont("Britannic Bold", 40)
-    nlabel=myfont.render("You had a successful exploration but unfortunately couldn't track down the blackhole", 1, (255, 0, 0))
+    nlabel=myfont.render("", 1, (255, 0, 0))
     scoretext = myfont2.render("SCORE: "+str(round(score)), 1, (77,255,77))
     screen.blit(scoretext, (w-200, h-110))
     #HUD = myfont3.render("FPS: "+str(round(clock.get_fps(), 2)), 1, WHITE)
     #screen.blit(HUD, (w-200, h-70))
-    if score<=0:
-        nlabel=myfont2.render("gg", 1, YELLOW)
-    if score<=1000:
-        nlabel=myfont2.render("Although your journey was successful, you barely scratched the surface of our vast galaxy!", 1, YELLOW)
-    if score>1000 and score<5000:
-        nlabel=myfont2.render("Well done! You had a successful exploration but the blackhole still remains a mystery!", 1, YELLOW)
+    if score<=10:
+        background=load_image('end.png')
+        screen.blit(background,(0,0))
+    if score>10 and score<5000:
+        background=load_image('end2.png')
+        screen.blit(background,(0,0))
     if score>=5000:
-        nlabel=myfont2.render("Seems like you voyaged far and beyond! The blackhole still remains a mystery however!", 1, YELLOW)
+        background=load_image('end3.png')
+        screen.blit(background,(0,0))
     for event in pygame.event.get():
         if event.type==pygame.KEYDOWN:
             if event.key==pygame.K_RETURN:
