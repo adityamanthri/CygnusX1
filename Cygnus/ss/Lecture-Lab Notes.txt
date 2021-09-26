@@ -1,0 +1,220 @@
+Time to recall everything I did today unfortunately :VVVV
+
+................................ GENERAL ................................
+
+How to call a python file:
+- Go to file location with cd/ folder dropping
+- Then do python filename.py
+- DON'T do python -> import filename. That is inefficient.
+
+................................ 9/11 LAB ................................
+
+AND statement -> python will *short circuit* when it sees a false and skip to the very end returning the first value
+OR statement -> python will *short circuit* if it sees a true
+
+* -Remember that the difference between a *module* and *script* is how you execute it.-
+  - All modules can run as scripts -> via "python filename.py"
+  - All scripts can be imported as modules -> in the power shell via "import filename"
+
+//Modules condenses python code and makes it easier to achieve what you're looking for, for example, a random number.//
+//Python allows it to be imported so it can be used to achieve a desired effect without rewriting all that code.//
+//It is an extra because the functions in that module might not be necessary in all projects but when it comes in handy it can be used.//
+
+................................ 9/17 Lecture : SLICING  ................................
+
+
+Today's lesson was about slicing.
+
+We being with a string s = Hello all
+
+0 1 2 3 4 5 6 7 8
+H e l l o   a l l
+
+To slice you do s[x:y]
+
+Where s = string you want to slice from and x:y is the start and finishing numbers
+** However python does NOT include the LAST number in the string
+
+For example s[3:6] is :
+'llo '  -> 3 4 5 is included but NOT 6.
+
+Python can also accept negative parameters, where negative means start at end.
+So s[4:-2] is:
+'o ' or [4:6]
+
+We can also use the find module
+
+s.find('l') -> in the string s find 'l'
+
+This will return the first l it sees -> so 2 b/ it is found in position 2.
+
+s.rfind('l') where rfind is find from right will return 8
+
+
+What about s[5:].find('l')
+
+Python can accept ANY parameter for find. It is not only limited to variables.
+(Different than java)
+
+Python will also evaluate left to right. So it will first slice s[5:] giving you a NEW string:
+' a l l' and then begin to find 'l'
+
+ In this case it will ALSO return 2 because python only gets the NEW string ' a l l ' where the l is located in position 2.
+ It does not know the old string 'Hello all' at all and does not know it used to be in position 7. (will not return 7)
+
+................................ 9-18 : LAB ................................
+
+ 'e' in 'hello' -> is a true or false statement. Is there an e in hello? -> true
+
+ len(x) = length of string, array, etc (intergers have no length!)
+
+ '' is not considered part of the string!
+ len('Hell') = 4
+ len('') = 0
+
+
+ ** slicing strings
+- instead of s you can also just put the string (in quotes!) to slice:
+
+ex: 'abc'[2] = c vs s[2] you can define a variable as a string to slice or you can just input the string in quotes
+
+
+You can go negative more than there are numbers but not positive:
+ex: s[-54:3] = no error
+s[3:33] = error b/ not long enough
+
+// Different types of methods you can use on a string
+
+ s.index('a')          # assuming the variable s contains a string
+  'CS 1110'.index('1')  # you can call methods on a literal value
+  s.strip().index('a')  # s.strip() returns a string, which takes a method
+
+
+strip returns a string and then index uses that string to return a evaluate
+
+How it works:
+
+'www.example.com'.strip('cmowz.')
+= 'example'
+
+(parameters in strip = characters to remove)
+
+another example:
+
+>>> comment_string = '#....... Section 3.2.1 Issue #32 .......'
+>>> comment_string.strip('.#! ')
+'Section 3.2.1 Issue #32'
+
+If nothing is specified it will remove space on both ends:
+
+'   a b    '.strip() = 'a b'
+
+index() -> Is like find but while find does NOT return an error, index DOES.
+
+........................... 9-22 Lecture - Specifications and Testing  .................................
+
+- Also go watch Lesson 7+ 8 :'))))
+
+Analyzing functions:
+
+-> Descriptions of functions (def) need
+-> **explicitly** say what it returns (but don't use return rashly -> if it doesn't actually return something (for example it just prints a result) it's not a fruitful function and should not be claimed as one.)
+-> Needs parameters (what you input) + preconditions (condition the parameter needs to be)
+-> Examples are not required but are a nice way to hint to the reader what to input.
+
+Example:
+
+------------
+def greet(n):
+"""
+Returns a greeting for the person n.
+
+The greeting has format 'Hello <n>!'
+
+Parameter n: person to greet
+Precondition: n is a string.
+"""
+print('Hello' +n+ '!')
+------------
+
+** Error: this function claims it's fruitful (returns something) when it's a procedure (doesn't return a value and just prints the result).
+
+Correct specification for a this procedure:
+
+------------
+def greet(n):
+
+"""
+Prints a greeting for the person n.
+#Specifications should always begin with a verb (Converts, Returns, etc)
+
+"""
+
+text = 'Hello '+n+'!'
+print(text)
+-----------
+
+/// Test cases -> Different types of inputs
+-> 'bather' -> 'bthr'
+-> 'heat' -> 'ht'
+Are both very similar test cases where you remove 2 of the same vowels so it's best if you choose a different word/string to test. 
+
+................................ 9/24 Lecture : CONDITIONALS  ................................
+
+-> If statements I guess
+
+if (parameters)
+  return
+elif (parameters)
+  return
+else (parameters)
+  return
+
+When doing visualizations -> doc strings are not part of function call.
+  - So the line number of the call starts where the actual code starts.
+
+def function():
+  """
+    string
+  """
+    code here 
+
+When you call function() the box visualization of the code running starts at line 180 not 177.
+
+- In an if statement, the next line to excute is not always a line that is excuted at once.
+def numbers():
+
+if x>1
+  return 1
+
+elif x<1
+  return 2
+
+else:
+  return 0
+
+1. When you run a function it will start with line 187. Then move onto line 188
+2. When running line 188 -> there is NO return box with 1 yet.
+3. The instruction counter will just increase to make it 188.
+
+4. Return box comes later, when you are DONE with the program.
+ *** If you are DONE, there is no instruction counter remaining.
+
+*** Python always starts at the beginning of the code regardless of the parameters. 
+
+a. So if you do numbers(1) it'll begin at line 187 
+    -> Go to line 188 (no return yet!) -> THEN return.
+
+b. If you do numbers(-1) It will begin at line 187 ALSO
+    -> Go to line 190 (because 187 did not fit)
+
+c. If you do numbers(0) It will begin at 187
+    -> Go to line 190 (it needs to check all the paramaters) -> line 194
+        -> NOT line 193 because there is nothing to check.
+        -> Python will skip over else and go straight to line 194 (return of course comes after)
+
+*** In an if statement -> python will rerun through the if/elfi parameters ONE AT A TIME.
+It will check taht it doesn't belong to ANY of these catergories, not greater than 1 then not less than 1 then FINALLY it will go to the last return line. Line with else is skipped b/ there is nothing to check.
+
+BONUS: In a conditional expression, there is no elif there is ONLY else or if
+  Use parathenses to combine else + if to MAKE an elif statement.
