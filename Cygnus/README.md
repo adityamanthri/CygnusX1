@@ -36,7 +36,7 @@ Operation Cygnus X-1 is a fun open world space themed game set in the distant fu
 
 
 #### Shooting asteroids
-![Shooting Asteroids](ss/shooting.png
+![Shooting Asteroids](ss/shooting.png)
 
 ## Credits
 
